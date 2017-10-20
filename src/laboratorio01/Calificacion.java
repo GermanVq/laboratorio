@@ -18,12 +18,9 @@ public class Calificacion {
     public Estudiante estudiantes;
     public Pregunta preguntas;
 
-    public Calificacion(int IDCal, double nota, 
-            Estudiante estudiantes, Pregunta preguntas) {
+    public Calificacion(int IDCal, double nota) {
         this.IDCal = IDCal;
         this.nota = nota;
-        this.estudiantes = estudiantes;
-        this.preguntas = preguntas;
     }
 
     public int getIDCal() {
@@ -60,17 +57,19 @@ public class Calificacion {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 13 * hash + this.IDCal;
-        hash = 13 * hash + (int) (Double.doubleToLongBits(this.nota) ^ 
-                (Double.doubleToLongBits(this.nota) >>> 32));
-        hash = 13 * hash + Objects.hashCode(this.estudiantes);
-        hash = 13 * hash + Objects.hashCode(this.preguntas);
+        int hash = 5;
+        hash = 97 * hash + this.IDCal;
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.nota) ^ (Double.doubleToLongBits(this.nota) >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.estudiantes);
+        hash = 97 * hash + Objects.hashCode(this.preguntas);
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
         }
@@ -86,8 +85,8 @@ public class Calificacion {
 
     @Override
     public String toString() {
-        return "Calificacion{" + "IDCal=" + IDCal + ", nota=" + nota 
-          + ", estudiantes=" + estudiantes + ", preguntas=" + preguntas + '}';
+        return "Calificacion{" + "IDCal=" + IDCal + ", nota=" + nota + '}';
     }
-    
+
+ 
 }

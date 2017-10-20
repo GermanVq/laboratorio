@@ -16,7 +16,11 @@ import laboratorio01.Estudiante;
  */
 public class prueba {
     public static void main(String[] args) {
-        DoublyLinkedList<Estudiante> nuevoEstudiante= new DoublyLinkedList();
+        DoublyLinkedList<Estudiante> listaEstudiante= new DoublyLinkedList();
+        listaEstudiante.addLast(new Estudiante(23, "german","vega"));
+        listaEstudiante.addLast(new Estudiante(22, "grman","vea"));
+        System.out.println("nuevo estudiante"+listaEstudiante.remove(new Estudiante(23, "german", "vega")));
+        System.out.println("lista nueva: "+listaEstudiante);
         
        
     }

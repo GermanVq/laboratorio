@@ -17,7 +17,7 @@ public class Curso {
     private int IDCur;
     private String nombreDelCurso;
     private int numeroDeEstudiantes;
-    DoublyLinkedList<Estudiante> listaEstudiantes = new DoublyLinkedList();
+    protected DoublyLinkedList<Estudiante> listaEstudiantes;
 
     public Curso(int ID, String nombreDelCurso, int numeroDeEstudiantes, 
             DoublyLinkedList<Estudiante> listaEstudiantes) {
@@ -90,8 +90,14 @@ public class Curso {
        + nombreDelCurso + ", numeroDeEstudiantes=" + numeroDeEstudiantes
                 + ", listaEstudiantes=" + listaEstudiantes + '}';
     }
-    public void nuevoEstudiante(Estudiante dato){
-        listaEstudiantes.remove(dato);
+    public void eliminarEstudiante(){
+        listaEstudiantes.remove(new Estudiante(IDCur, nombreDelCurso, nombreDelCurso));
+    }
+    public void agregarEstudiante(){
+        listaEstudiantes.addLast(new Estudiante(IDCur, nombreDelCurso, nombreDelCurso));
+    }
+    public void buscarEstudiante(){
+        listaEstudiantes.contains(new Estudiante(IDCur, nombreDelCurso, nombreDelCurso));
     }
    
     

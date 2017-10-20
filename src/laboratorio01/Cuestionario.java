@@ -16,8 +16,8 @@ import java.util.Objects;
 public class Cuestionario {
     private int IDCues;
     private String Nombre;
-     DoublyLinkedList<Pregunta>listaPreguntas ;
-     DoublyLinkedList<Calificacion>listaCalificaciones;
+    protected DoublyLinkedList<Pregunta>listaPreguntas ;
+    protected DoublyLinkedList<Calificacion>listaCalificaciones;
 
     public Cuestionario(int IDCues, String Nombre, DoublyLinkedList<Pregunta> 
             listaPreguntas, DoublyLinkedList<Calificacion> listaCalificaciones) {
@@ -89,6 +89,25 @@ public class Cuestionario {
         return "Cuestionario{" + "IDCues=" + IDCues + ", Nombre=" + Nombre +
       ", listaPreguntas=" + listaPreguntas + 
      ", listaCalificacion=" + listaCalificaciones+ '}';
+    }
+    
+    public void eliminarPreguntas(){
+        listaPreguntas.remove(new Pregunta(IDCues, Nombre, Nombre, IDCues, IDCues));
+    }
+    public void agregarPreguntas(){
+        listaPreguntas.addLast(new Pregunta(IDCues, Nombre, Nombre, IDCues, IDCues));
+    }
+    public void buscarPreguntas(){
+        listaPreguntas.contains(new Pregunta(IDCues, Nombre, Nombre, IDCues, IDCues));
+    }
+    public void eliminarCalificacion(){
+        listaCalificaciones.remove( new Calificacion(IDCues, IDCues));
+    }
+    public void  agregarCalificacion(){
+        listaCalificaciones.addLast(new Calificacion(IDCues, IDCues));
+    }
+    public void buscarCalificacion(){
+        listaCalificaciones.contains(new Calificacion(IDCues, IDCues)); 
     }
   
 }
