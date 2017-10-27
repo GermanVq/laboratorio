@@ -6,6 +6,8 @@
 package interfaz;
 
 import javax.swing.UIManager;
+import laboratorio01.Curso;
+import laboratorio01.Estudiante;
 
 /**
  *
@@ -31,11 +33,11 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        cmdAgregarEstudiante = new javax.swing.JButton();
+        cmdCurso = new javax.swing.JButton();
+        cmdCalificaciones = new javax.swing.JButton();
+        cmdCuestionario = new javax.swing.JButton();
+        cmdPreguntas = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -51,25 +53,45 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Agregar Estudiantes");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 130, 30));
-
-        jButton2.setText("Curso");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cmdAgregarEstudiante.setText("Agregar Estudiantes");
+        cmdAgregarEstudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cmdAgregarEstudianteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 130, 30));
+        jPanel1.add(cmdAgregarEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 130, 30));
 
-        jButton3.setText("Calificaciones");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 130, 30));
+        cmdCurso.setText("Curso");
+        cmdCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCursoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 130, 30));
 
-        jButton4.setText("Cuestionarios");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 130, 30));
+        cmdCalificaciones.setText("Calificaciones");
+        cmdCalificaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalificacionesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCalificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 130, 30));
 
-        jButton5.setText("Prenguntas");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 130, 30));
+        cmdCuestionario.setText("Cuestionarios");
+        cmdCuestionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCuestionarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCuestionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 130, 30));
+
+        cmdPreguntas.setText("Prenguntas");
+        cmdPreguntas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdPreguntasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 130, 30));
 
         jMenu1.setText("File ");
 
@@ -117,9 +139,36 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cmdCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCursoActionPerformed
+        GuiCurso obj = new GuiCurso();
+        obj.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_cmdCursoActionPerformed
+
+    private void cmdAgregarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAgregarEstudianteActionPerformed
+        this.dispose();   
+        GuiEstudiante abrir = new GuiEstudiante();
+        abrir.setVisible(true);
+      
+    }//GEN-LAST:event_cmdAgregarEstudianteActionPerformed
+
+    private void cmdCalificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalificacionesActionPerformed
+      GuiCalificaciones obj = new GuiCalificaciones();
+       obj.setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cmdCalificacionesActionPerformed
+
+    private void cmdCuestionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCuestionarioActionPerformed
+        GuiCuestionario obj = new GuiCuestionario();
+        obj.setVisible(true);
+        
+    }//GEN-LAST:event_cmdCuestionarioActionPerformed
+
+    private void cmdPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPreguntasActionPerformed
+        GuiPregunta obj = new GuiPregunta();
+       obj.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_cmdPreguntasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,11 +201,11 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton cmdAgregarEstudiante;
+    private javax.swing.JButton cmdCalificaciones;
+    private javax.swing.JButton cmdCuestionario;
+    private javax.swing.JButton cmdCurso;
+    private javax.swing.JButton cmdPreguntas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
