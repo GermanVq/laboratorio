@@ -5,9 +5,18 @@
  */
 package interfaz;
 
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import laboratorio01.Curso;
 import laboratorio01.Estudiante;
+import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -33,11 +42,14 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        cmdAgregarEstudiante = new javax.swing.JButton();
-        cmdCurso = new javax.swing.JButton();
-        cmdCalificaciones = new javax.swing.JButton();
-        cmdCuestionario = new javax.swing.JButton();
-        cmdPreguntas = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -45,7 +57,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuListaEstudiantes = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
 
@@ -53,45 +65,67 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cmdAgregarEstudiante.setText("Agregar Estudiantes");
-        cmdAgregarEstudiante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdAgregarEstudianteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cmdAgregarEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 130, 30));
+        jPanel3.setBackground(new java.awt.Color(0, 51, 0));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cmdCurso.setText("Curso");
-        cmdCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCursoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cmdCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 130, 30));
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("FILES");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 92, 61));
 
-        cmdCalificaciones.setText("Calificaciones");
-        cmdCalificaciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCalificacionesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cmdCalificaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 130, 30));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cmdCuestionario.setText("Cuestionarios");
-        cmdCuestionario.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setBackground(new java.awt.Color(0, 51, 0));
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\laboratorio\\Imagenes\\icons8-archive-folder (1).png")); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCuestionarioActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdCuestionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 130, 30));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 140, 100));
 
-        cmdPreguntas.setText("Prenguntas");
-        cmdPreguntas.addActionListener(new java.awt.event.ActionListener() {
+        jButton5.setBackground(new java.awt.Color(0, 51, 0));
+        jButton5.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\laboratorio\\Imagenes\\icons8-archive-folder (1).png")); // NOI18N
+        jButton5.setText("Estudiantes");
+        jButton5.setBorder(null);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdPreguntasActionPerformed(evt);
+                jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdPreguntas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 130, 30));
+        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 140, 100));
+
+        jButton6.setBackground(new java.awt.Color(0, 51, 0));
+        jButton6.setIcon(new javax.swing.ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\laboratorio\\Imagenes\\icons8-archive-folder (1).png")); // NOI18N
+        jButton6.setBorder(null);
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 140, 100));
+
+        jButton3.setBackground(new java.awt.Color(0, 51, 0));
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\laboratorio\\Imagenes\\icons8-archive-folder (1).png")); // NOI18N
+        jButton3.setBorder(null);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 140, 100));
+
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 870, 180));
+
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semilight", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\admin\\Documents\\NetBeansProjects\\laboratorio\\Imagenes\\icons8-archive-folder.png")); // NOI18N
+        jLabel3.setText("principal");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 120, 30));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 420));
+
+        jMenuBar1.setBackground(new java.awt.Color(0, 51, 0));
+        jMenuBar1.setBorder(null);
 
         jMenu1.setText("File ");
 
@@ -110,8 +144,13 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu3.setText("Curso");
 
-        jMenuItem4.setText("Lista Estudiantes");
-        jMenu3.add(jMenuItem4);
+        jMenuListaEstudiantes.setText("Lista Estudiantes");
+        jMenuListaEstudiantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuListaEstudiantesActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuListaEstudiantes);
 
         jMenu1.add(jMenu3);
 
@@ -129,46 +168,46 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmdCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCursoActionPerformed
-        GuiCurso obj = new GuiCurso();
-        obj.setVisible(true);
-// TODO add your handling code here:
-    }//GEN-LAST:event_cmdCursoActionPerformed
-
-    private void cmdAgregarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAgregarEstudianteActionPerformed
-        this.dispose();   
-        GuiEstudiante abrir = new GuiEstudiante();
-        abrir.setVisible(true);
-      
-    }//GEN-LAST:event_cmdAgregarEstudianteActionPerformed
-
-    private void cmdCalificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalificacionesActionPerformed
-      GuiCalificaciones obj = new GuiCalificaciones();
-       obj.setVisible(true);
+    private void jMenuListaEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuListaEstudiantesActionPerformed
+       /*
+        try{
+           JasperReport jr= (JasperReport) JRLoader.loadObject(Principal.class.getResource("/reporte/ListaEstudiante.jasper"));
+           Map parametros = new HashMap<String, Object>();
+           parametros.put("titulo", jTextField1.getText());
+           JasperPrint jp = JasperFillManager.fillReport(jr, parametros, new JREmptyDataSource());
+          JasperViewer jv = new JasperViewer(jp);
+          jv.show();
+           
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(rootPane, e);
+       }
+       */
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmdCalificacionesActionPerformed
+    }//GEN-LAST:event_jMenuListaEstudiantesActionPerformed
 
-    private void cmdCuestionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCuestionarioActionPerformed
-        GuiCuestionario obj = new GuiCuestionario();
-        obj.setVisible(true);
-        
-    }//GEN-LAST:event_cmdCuestionarioActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void cmdPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdPreguntasActionPerformed
-        GuiPregunta obj = new GuiPregunta();
-       obj.setVisible(true);
-// TODO add your handling code here:
-    }//GEN-LAST:event_cmdPreguntasActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+     UiEstudiante abrir = new UiEstudiante();
+     abrir.setVisible(rootPaneCheckingEnabled);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,11 +240,12 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cmdAgregarEstudiante;
-    private javax.swing.JButton cmdCalificaciones;
-    private javax.swing.JButton cmdCuestionario;
-    private javax.swing.JButton cmdCurso;
-    private javax.swing.JButton cmdPreguntas;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -213,9 +253,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuListaEstudiantes;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
